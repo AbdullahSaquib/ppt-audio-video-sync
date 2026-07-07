@@ -1,0 +1,33 @@
+Sub AddColoredRectangleToSlides()
+    Dim slide As slide
+    Dim rect As Shape
+    Dim slideWidth As Single
+    Dim slideHeight As Single
+    
+    ' Get slide dimensions
+    slideWidth = ActivePresentation.PageSetup.slideWidth
+    slideHeight = ActivePresentation.PageSetup.slideHeight
+    
+    ' Loop through each slide
+    For Each slide In ActivePresentation.Slides
+        ' Add rectangle to bottom-right corner
+        Set rect = slide.Shapes.AddShape(msoShapeRectangle, _
+            slideWidth - 10, slideHeight - 10, 10, 10)
+        
+        ' Set color based on slide number
+        If slide.SlideIndex Mod 2 = 1 Then
+            ' Odd slide - Red color
+            rect.Fill.ForeColor.RGB = RGB(0, 0, 0)
+        Else
+            ' Even slide - Blue color
+            rect.Fill.ForeColor.RGB = RGB(255, 255, 255)
+        End If
+        
+        ' Optional: Hide border line for the rectangle
+        rect.Line.Visible = msoFalse
+    Next slide
+    
+    MsgBox "Added slides change identifiers!"
+End Sub
+
+

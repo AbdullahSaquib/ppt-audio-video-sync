@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Generated sync/subtitle outputs
+app/__temp__*
+app/*syncmap*.json
+app/output.srt
+
+# Media inputs and generated videos/audio
+app/*.mp4
+app/*.mp3
+app/*.wav
+
+# OS/editor metadata
+.DS_Store
+Thumbs.db
+*.Zone.Identifier
